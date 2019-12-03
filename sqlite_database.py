@@ -1,4 +1,4 @@
-import sqlite3
+from flask import Flask, sqlite3
 
 conn = sqlite3.connect('games.db')
 
