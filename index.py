@@ -1,41 +1,43 @@
-from flask import Flask, render_template, url_for, flash, redirect
-from flask_sqlalchemy import SQLAlchemy
-from forms import UploadForm
+from flask import Flask, g, render_template, url_for, redirect
+import sqlite3 as sql
+
+from flask import Flask
 app = Flask(__name__)
+db_location = 'var/gaming_zone.db'
 
-app.config['SECRET_KEY'] = '[\x8fb\xf2\xcbN\x8a\x05J\x12^LP\xf4\xfa\xbb\xa34+\xab\xc1\xb3(\x7f'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///gaming_zone.db'
+def get_db():
+    db = getattr(g, 'db', None)
+    if db is None:
+        db = sqlite3.connect(db_location)
+        g.db = db
+    return db
 
-db = SQLAlchemy(app)
+@app.teardown_appcontext
+def close_db_connection(exception):
+    db = getattr(g, 'db', None)
+    if db is not None:
+        db.close()
 
-class Games(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    game_title = db.Column(db.String(20), unique=True, nullable=False)
-    image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
-    games_posts = db.relationship('Games_posts', backref='individual_games', lazy=True)
-
-    
-
-class Games_posts(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(150), unique=True, nullable=False)
-    content = db.Column(db.String(10000), unique=True, nullable=False)
-    descriptors = db.Column(db.String(150), unique=False, nullable=True)
-    game_id = db.Column(db.Integer, db.ForeignKey('games.id'), nullable=False)
-
-
+def init_db():
+    with app.app_context():
+        db = get_db()
+        with app.open_resource('schema.sql', mode='r') as f:
+            db.cursor().executescript(f.read())
+        db.commit()
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    con = sql.connect("var/gaming_zone.db")
+    con.row_factory = sql.Row
+
+    cur = con.cursor()
+    cur.execute("SELECT * FROM games")
+    rows = cur.fetchall();
+    return render_template('index.html', rows = rows)
 
 @app.route('/xbox/games', methods=['GET', 'POST'])
 def xbox_games():
-    form = UploadForm()
-    if form.validate_on_submit():
-        print("Upload successful")
-        return redirect(url_for('xbox_games'))
-    return render_template('individual_games.html', title='Upload', form=form)
+    return render_template('individual_games.html')
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)

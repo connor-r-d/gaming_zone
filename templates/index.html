@@ -39,7 +39,16 @@
 
 	</div>
 	
-<div class="banner"></div>
-	
+<div class="banner">
+
+{% for rows in rows %}
+<tr>
+<td>{{rows["game_title"]}}</td>
+<td>{{rows["platform"]}}</td>
+</tr>
+{% endfor %}
+
+</div>
+
 </div>
 
