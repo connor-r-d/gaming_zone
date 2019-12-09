@@ -10,7 +10,7 @@
 <link rel="icon" type="image/svg" href="img/thumbnail.svg"/>
 <link href="../static/css/style.css" rel="stylesheet" type="text/css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="js/script.js"></script>
 <title>Gaming Zone</title>
@@ -28,10 +28,10 @@
 
 		<ul>
 
-			<li><a href="xbox" class="xbox">xbox</a></li>
-			<li><a href="#" class="playstation">playstation</a></li>
-			<li><a href="#" class="nintendo">nintendo</a></li>
-			<li><a href="#" class="pc">pc</a></li>
+			<li><a href="games" class="xbox">xbox</a></li>
+			<li><a href="playstation/games" class="playstation">playstation</a></li>
+			<li><a href="nintendo/games" class="nintendo">nintendo</a></li>
+			<li><a href="pc/games" class="pc">pc</a></li>
 
 		</ul>
 
@@ -60,36 +60,7 @@
 </div>
 
 <form action="" method="POST">
-	{{form.hidden_tag()}}
-	<fieldset class="form-group">
 	
-		<div class="form-group">
-			
-			{{form.title.label(class="form-control-label")}}
-			{{form.title(class="form-control form-control-lg")}}
-
-		</div>
-		<br>
-		<div class="form-group">
-
-			{{form.content.label(class="form-control-label")}}
-			{{form.content(class="form-control form-control-lg")}}
-
-		</div>
-		<br>
-		<div class="form-group">
-
-			{{form.descriptors.label(class="form-control-label")}}
-			{{form.descriptors(class="form-control form-control-lg")}}
-
-		<br>
-		<div class="form-group">Upload
-		
-			{{form.submit(class="btn btn-outline-info")}}
-
-		</div>
-	
-	</fieldset>
 
 </form>
 

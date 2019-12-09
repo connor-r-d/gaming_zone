@@ -10,7 +10,7 @@
 <link rel="icon" type="image/svg" href="img/thumbnail.svg"/>
 <link href="../static/css/style.css" rel="stylesheet" type="text/css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="js/script.js"></script>
 <title>Gaming Zone</title>
@@ -29,9 +29,9 @@
 		<ul>
 
 			<li><a href="/xbox/games" class="xbox">xbox</a></li>
-			<li><a href="#" class="playstation">playstation</a></li>
-			<li><a href="#" class="nintendo">nintendo</a></li>
-			<li><a href="#" class="pc">pc</a></li>
+			<li><a href="/playstation/games" class="playstation">playstation</a></li>
+			<li><a href="nintendo/games" class="nintendo">nintendo</a></li>
+			<li><a href="pc/games" class="pc">pc</a></li>
 
 		</ul>
 
@@ -45,45 +45,66 @@
 
 <div class="game_image">
 <div class="image the_last"></div>
-<tr class="table_name">
-<td>{{the_last["game_title"]}}</td>
+<tr>
+<td><p class="table_name">{{the_last["game_title"]}}</p></td>
 </tr>
 </div>
 
 {% endfor %}
 
 {% for mass_effect in mass_effect %}
-<tr>
-<td class="table_name">{{mass_effect["game_title"]}}</td>
+
+<div class="game_image">
+<div class="image mass_effect"></div>
+<tr class="table_name">
+<td><p class="table_name">{{mass_effect["game_title"]}}</p></td>
 </tr>
+</div>
+
 {% endfor %}
 
 {% for the_legend in the_legend %}
+
+<div class="game_image">
+<div class="image the_legend"></div>
+<tr class="table_name">
+<td><p class="table_name">{{the_legend["game_title"]}}</p></td>
 <tr>
-<td>{{the_legend["game_title"]}}</td>
-<td>{{the_legend["platform"]}}</td>
-<tr>
+</div>
+
 {% endfor %}
 
 {% for halo in halo %}
+
+<div class="game_image">
+<div class="image halo"></div>
+<tr class="table_name">
+<td><p class="table_name">{{halo["game_title"]}}</p></td>
 <tr>
-<td>{{halo["game_title"]}}</td>
-<td>{{halo["platform"]}}</td>
-<tr>
+</div>
+
 {% endfor %}
 
 {% for witcher in witcher %}
-<tr>
-<td>{{witcher["game_title"]}}</td>
-<td>{{witcher["platform"]}}</td>
+
+<div class="game_image">
+<div class="image witcher"></div>
+<tr class="table_name">
+<td><p class="table_name">{{witcher["game_title"]}}</p></td>
 </tr>
+</div>
+
 {% endfor %}
 
 {% for dark_souls in dark_souls %}
+
+<div class="game_image">
+<div class="image dark_souls"></div>
+<tr class="table_name">
+<td><p class="table_name">{{dark_souls["game_title"]}}</p></td>
 <tr>
-<td>{{dark_souls["game_title"]}}</td>
-<td>{{dark_souls["platform"]}}</td>
-<tr>
+</div>
+
 {% endfor %}
 
 </div>
