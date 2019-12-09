@@ -41,11 +41,49 @@
 	
 <div class="banner">
 
-{% for rows in rows %}
-<tr>
-<td>{{rows["game_title"]}}</td>
-<td>{{rows["platform"]}}</td>
+{% for the_last in the_last %}
+
+<div class="game_image">
+<div class="image the_last"></div>
+<tr class="table_name">
+<td>{{the_last["game_title"]}}</td>
 </tr>
+</div>
+
+{% endfor %}
+
+{% for mass_effect in mass_effect %}
+<tr>
+<td class="table_name">{{mass_effect["game_title"]}}</td>
+</tr>
+{% endfor %}
+
+{% for the_legend in the_legend %}
+<tr>
+<td>{{the_legend["game_title"]}}</td>
+<td>{{the_legend["platform"]}}</td>
+<tr>
+{% endfor %}
+
+{% for halo in halo %}
+<tr>
+<td>{{halo["game_title"]}}</td>
+<td>{{halo["platform"]}}</td>
+<tr>
+{% endfor %}
+
+{% for witcher in witcher %}
+<tr>
+<td>{{witcher["game_title"]}}</td>
+<td>{{witcher["platform"]}}</td>
+</tr>
+{% endfor %}
+
+{% for dark_souls in dark_souls %}
+<tr>
+<td>{{dark_souls["game_title"]}}</td>
+<td>{{dark_souls["platform"]}}</td>
+<tr>
 {% endfor %}
 
 </div>

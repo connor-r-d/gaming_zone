@@ -106,25 +106,33 @@ a:hover, a:visited, a:link, a:active
 	border-bottom:2px solid rgba(160,120,120,0.5);
 }
 
-.title{
-	
+.game_image{
+	width:15%;
+	height:85%;
+	float:left;
 }
 
-.games{
-	
+.image{
+	width:100%;
+	height:90%;
+	float:left;
 }
 
-.single_games{
-	
+.the_last{
+	background:url(../static/img/the_last.png);
+	background-size:cover;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-ms-background-size:cover;
+	-o-background-size:cover;
+	background-position:center;
 }
 
-.display{
-	width:20%;
-	height:100%;
-	font-size:20px;
-	float:left:
+.table_name{
+	width:100%;
+	height:10%;
+	float:left;
 }
-
 
 /*    individual_games    */
 
