@@ -196,13 +196,25 @@ a:hover, a:visited, a:link, a:active
 	float:left;
 }
 
-/*    individual_games    */
+/*    Consoles    */
 
 
-.image_section{
-	width:85%;
-	height:30vh;
-	
+.console_title{
+	text-align:center;
+	font-size:46px;
+	margin-top:7%;
+}
+
+#xbox_color{
+	color:green;
+}
+
+#playstation_color{
+	color:blue;
+}
+
+#nintendo_color{
+	color:red;
 }
 
 .input_section{

@@ -61,21 +61,21 @@ def home():
 
     return render_template('index.html', the_last=the_last, mass_effect=mass_effect, the_legend=the_legend, halo=halo, witcher=witcher, dark_souls=dark_souls)
 
-@app.route('/xbox/games', methods=['GET', 'POST'])
+@app.route('/xbox', methods=['GET', 'POST'])
 def xbox_games():
     return render_template('xbox_games.html')
 
-@app.route('/playstation/games', methods=['GET', 'POST'])
-def xbox_games():
+@app.route('/playstation', methods=['GET', 'POST'])
+def playstation_games():
     return render_template('playstation_games.html')
 
-@app.route('/nintendo/games', methods=['GET', 'POST'])
-def xbox_games():
+@app.route('/nintendo', methods=['GET', 'POST'])
+def nintendo_games():
     return render_template('nintendo_games.html')
 
-@app.route('/pc/games', methods=['GET', 'POST'])
-def xbox_games():
-    return render_template('pc_games.html')
+@app.route('/pc', methods=['GET', 'POST'])
+def pc_games():
+    return render_template('pc.html')
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
