@@ -2,8 +2,15 @@
 
 $(document).ready(function(){
 	'use strict';
-		$('.read_more').click(function() {
+		$('.upload').click(function() {
 				$('.page_overlay').css('display', 'block');
 				$('.overlay').css('display', 'block');
 		});
+
+		$('.cross').click(function() {
+				$('.page_overlay').css('display', 'none');
+				$('.overlay'.css('display', 'none');
+		}
 });
+
+

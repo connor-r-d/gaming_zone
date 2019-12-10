@@ -9,10 +9,8 @@ CREATE TABLE games(
 
 DROP TABLE if EXISTS the_last_of_us;
 
-CREATE TABLE the_last_of_us(
-	id INTEGER NOT NULL,
+CREATE TABLE lastDatabase(
 	title varchar(100) NOT NULL,
 	content varchar(10000) NOT NULL,
-	descriptors varchar(150) NOT NULL,
-	PRIMARY KEY (id)
+	descriptors varchar(150) NOT NULL
 );

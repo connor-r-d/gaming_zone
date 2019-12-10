@@ -1,0 +1,8 @@
+import sqlite3
+
+conn = sqlite3.connect('database.db')
+print "Opened database successfully";
+
+conn.execute('CREATE TABLE the_last_of_us (title varchar(100) NOT NULL,content varchar(10000) NOT NULL, descriptors varchar(150) NOT NULL)')
+print "Table created successfully";
+conn.close()

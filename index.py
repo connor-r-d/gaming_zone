@@ -1,4 +1,4 @@
-from flask import Flask, g, render_template, url_for, redirect
+from flask import Flask, g, render_template, url_for, redirect, request
 import sqlite3 as sql
 
 from flask import Flask
@@ -27,15 +27,6 @@ def init_db():
 
 @app.route('/')
 def home():
-    #db = get_db()
-    #db.cursor().execute('insert into games values (1, "The Last of Us", "ps4")')
-    #db.cursor().execute('insert into games values (2, "Mass effect", "three")')
-    #db.cursor().execute('insert into games values (3, "The legend of Zelda", "switch")')
-    #db.cursor().execute('insert into games values (4, "Halo Infinite", "xbox")')
-    #db.cursor().execute('insert into games values (5, "Witcher 3", "four")')
-    #db.cursor().execute('insert into games values (6, "Dark Souls", "four")')
-    #db.commit()
-
     con = sql.connect("var/gaming_zone.db")
     con.row_factory = sql.Row
 
@@ -138,6 +129,16 @@ def pc_games():
 
 @app.route('/games/the_last_of_us', methods=['GET', 'POST'])
 def the_last_of_us():
+    #db = get_db()
+    #db.cursor().execute('INSERT INTO games values (1, "The Last of Us", "ps4")')
+    #db.cursor().execute('INSERT INTO games values (2, "Mass Effect", "three")')
+    #db.cursor().execute('INSERT INTO games values (3, "The Legend of Zelda", "nintendo")')
+    #db.cursor().execute('INSERT INTO games values (4, "Halo Infinite", "xbox")')
+    #db.cursor().execute('INSERT INTO games values (5, "Witcher 3", "four")')
+    #db.cursor().execute('INSERT INTO games values (6, "Dark Souls", "four")')
+    #db.cursor().execute('INSERT INTO lastDatabase values ("Fighting the end boss", "To fight the end boss", "End Boss Fight")')
+    #db.commit()
+
     con = sql.connect("var/gaming_zone.db")
     con.row_factory = sql.Row
 
@@ -146,25 +147,24 @@ def the_last_of_us():
     cur.execute("SELECT * FROM games WHERE id=1")
     the_last = cur.fetchall();
 	
-	if request.method == 'POST':
-		try:
-			titl = request.form['titl']
-			cont = request.form['cont']
-			desc = request.form['desc']
-			
-			with sql.connect("var/gaming_zone.db") as con:
-				cur = con.cursor()
-				cur.execute("INSERT INTO the_last_of_us (title,content,descriptors) VALUES (?,?,?)",(titl,cont,desc) )
-				
-				con.commit()
-			except:
-				con.rollback()
-			
-	cur.execute("SELECT * FROM the_last_of_us")
-	the_last_posts = cur.fetchall()
+    if request.method == 'POST':
+        titl = request.form['titl']
+	cont = request.form['cont']
+        desc = request.form['desc']
+	db = get_db()
+	db.cursor().execute("INSERT INTO lastDatabase (title,content,descriptors) VALUES (?,?,?)",(titl,cont,desc) )
+	db.commit()
+    
+    con = sql.connect("var/gaming_zone.db")
+    con.row_factory = sql.Row
+
+    cur = con.cursor()
+
+    cur.execute("SELECT * FROM lastDatabase")
+    the_last_posts = cur.fetchall();
 
     return render_template('the_last_of_us.html', the_last=the_last, the_last_posts=the_last_posts)
-	con.close()
+
 
 @app.route('/games/mass_effect', methods=['GET', 'POST'])
 def mass_effect():
