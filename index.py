@@ -1,3 +1,5 @@
+import ConfigParser
+
 from flask import Flask, g, render_template, url_for, redirect, request
 import sqlite3 as sql
 
@@ -317,5 +319,45 @@ def dark_souls():
 
     return render_template('dark_souls.html', dark_souls=dark_souls, dark_souls_posts=dark_souls_posts)
 
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=True)
+@app.route('/config/')
+def config():
+    s = []
+    s.append('debug:'+app.config['DEBUG'])
+    s.append('port:'+app.config['port'])
+    s.append('url:'+app.config['url'])
+    s.append('ip_address:'+app.config['ip_address'])
+    return ', '.join(s)
+
+def init(app):
+    config = ConfigParser.ConfigParser()
+    try:
+        config_location = "etc/defaults.cfg"
+        config.read(config_location)
+        
+        app.config['DEBUG'] = config.get("config", "debug")
+        app.config['ip_address'] = config.get("config", "ip_address")
+        app.config['port'] = config.get("config", "port")
+        app.config['url'] = config.get("config", "url")
+    except:
+        print "Could not read configs from: ", config_location
+
+if __name__ == '__main__':
+    init(app)
+    app.run(
+        host=app.config['ip_address']
+        port=int(app.config['port']))
+        
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
