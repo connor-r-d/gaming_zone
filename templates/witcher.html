@@ -38,21 +38,86 @@
 	</nav>
 
 	</div>
+	
+<div class="page_overlay"></div>
+
+<div class="overlay">
+	
+<img src="../static/img/cross.svg" alt="Cross" class="cross">
+	
+<form class="upload_form" action="" method="POST">
+	
+	<p class="placeholder">Title:</p>
+	<input class="input_upload" type="text" name="titl"/><br>
+	<p class="placeholder">Content:</p>
+	<textarea class="input_text" name="cont"></textarea><br>
+	<p class="placeholder">Descriptors:</p>
+	<input class="input_upload" type="text" name="desc"/><br>
+
+	<input class="input_submit" type="submit" value="submit" /><br>
+
+</form>
+
+</div>
 
 <div class="console_banner">
 
 {% for witcher in witcher %}
 
-	<div class="game_individual_image">
-		<div class="image witcher"></div>
-			<tr class="table_name">
-				<td><p class="table_name">{{witcher["game_title"]}}</p></td>
+<div class="game_individual_image">
+	<div class="image witcher"></div>
+		<tr>
+			<td><p class="table_name">{{witcher["game_title"]}}</p></td>
 		</tr>
-	</div>
+</div>
 
 {% endfor %}
-	
+
+<div class="search_upload">
+
+<form action="" method="">
+	<div class="search_box">
+ 		<input type="text" class="search" placeholder="Search.." name="serch">
+		<button type="submit" class="btn" name="submit">
+		<i class="fas fa-search"></i>
+		</button>
+	</div>
+</form>
+
+<button class="upload">Upload</button>
+
 </div>
+
+</div>
+	
+{% for post in witcher_posts %}
+
+<div class="individual_games_container">
+
+<tr>
+
+<div class="top_section">
+	
+	<div class="title"><td>{{post["title"]}}</td></div>
+	<div class="content"><td>{{post["content"]}}</td></div>
+
+</div>
+<div class="bottom_section">
+
+	<div class="descriptors"><td>{{post["descriptors"]}}</td></div>
+
+</div>
+
+</tr>
+
+</div>
+
+{% endfor %}
+
+</div>
+	
+<script type="text/javascript" src="../static/js/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../static/js/script.js"></script>
 	
 </body>
 
