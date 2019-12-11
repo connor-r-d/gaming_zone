@@ -9,25 +9,9 @@
 <meta name="author" content="Connor Duthie"/>
 <link rel="icon" type="image/svg" href="img/thumbnail.svg"/>
 <link href="../static/css/style.css" rel="stylesheet" type="text/css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+<link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript">
-	
-	$(document).ready(function(){
-		'use strict';
-			$('.upload').click(function() {
-					$('.page_overlay').css('display', 'block');
-					$('.overlay').css('display', 'block');
-			});
-
-			$('.cross').click(function() {
-					$('.page_overlay').css('display', 'none');
-					$('.overlay'.css('display', 'none');
-			}
-	});
-	
-</script>
 <title>Gaming Zone</title>
 </head>
 
@@ -60,15 +44,16 @@
 	
 <img src="../static/img/cross.svg" alt="Cross" class="cross">
 	
-<form class="upload" action="" method="POST">
+<form class="upload_form" action="" method="POST">
 	
-	<input type="text" name="titl"/><br>
-	
-	<textarea name="cont"></textarea><br>
-	
-	<input type="text" name="desc"/><br>
+	<p class="placeholder">Title:</p>
+	<input class="input_upload" type="text" name="titl"/><br>
+	<p class="placeholder">Content:</p>
+	<textarea class="input_text" name="cont"></textarea><br>
+	<p class="placeholder">Descriptors:</p>
+	<input class="input_upload" type="text" name="desc"/><br>
 
-	<input type="submit" value="submit" /><br>
+	<input class="input_submit" type="submit" value="submit" /><br>
 
 </form>
 
@@ -87,40 +72,49 @@
 
 {% endfor %}
 
+<div class="search_upload">
+
+<form action="" method="GET">
+	<div class="search_box">
+ 		<input type="text" class="search" placeholder="Search.." name="serch">
+		<button type="submit" class="btn" name="submit">
+		<i class="fas fa-search"></i>
+		</button>
+	</div>
+</form>
+
+<button class="upload">Upload</button>
+
 </div>
-		
-	<button class="upload">Upload</button>
-	
+
 </div>
 	
 {% for post in the_last_posts %}
 
+<div class="individual_games_container">
+
 <tr>
-	<td>{{post["title"]}}</td>
-	<td>{{post["content"]}}</td>
-	<td>{{post["descriptors"]}}</td>
+
+<div class="top_section">
+	
+	<div class="title"><td>{{post["title"]}}</td></div>
+	<div class="content"><td>{{post["content"]}}</td></div>
+
+</div>
+<div class="bottom_section">
+
+	<div class="descriptors"><td>{{post["descriptors"]}}</td></div>
+
+</div>
+
 </tr>
 
+</div>
 
 {% endfor %}
 	
 <script type="text/javascript" src="../static/js/jquery-3.4.1.js"></script>
-<script type="text/javascript" src="../static/js/script.js">
-
-	$(document).ready(function(){
-		'use strict';
-			$('.upload').click(function() {
-					$('.page_overlay').css('display', 'block');
-					$('.overlay').css('display', 'block');
-			});
-
-			$('.cross').click(function() {
-					$('.page_overlay').css('display', 'none');
-					$('.overlay'.css('display', 'none');
-			}
-	});
-	
-</script>
+<script type="text/javascript" src="../static/js/script.js"></script>
 	
 </body>
 

@@ -146,15 +146,16 @@ def the_last_of_us():
 
     cur.execute("SELECT * FROM games WHERE id=1")
     the_last = cur.fetchall();
-	
-    if request.method == 'POST':
-        titl = request.form['titl']
-	cont = request.form['cont']
-        desc = request.form['desc']
-	db = get_db()
-	db.cursor().execute("INSERT INTO lastDatabase (title,content,descriptors) VALUES (?,?,?)",(titl,cont,desc) )
-	db.commit()
     
+    if request.method == 'POST':
+            titl = request.form['titl']
+            cont = request.form['cont']
+            desc = request.form['desc']
+            db = get_db()
+            db.cursor().execute("INSERT INTO lastDatabase (title,content,descriptors) VALUES (?,?,?)",(titl,cont,desc) )
+            db.commit()
+            return redirect(url_for('the_last_of_us'));
+           
     con = sql.connect("var/gaming_zone.db")
     con.row_factory = sql.Row
 
