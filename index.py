@@ -176,8 +176,25 @@ def mass_effect():
 
     cur.execute("SELECT * FROM games WHERE id=2")
     mass_effect = cur.fetchall();
+    
+    if request.method == 'POST':
+            titl = request.form['titl']
+            cont = request.form['cont']
+            desc = request.form['desc']
+            db = get_db()
+            db.cursor().execute("INSERT INTO massDatabase (title,content,descriptors) VALUES (?,?,?)",(titl,cont,desc) )
+            db.commit()
+            return redirect(url_for('mass_effect'));
+           
+    con = sql.connect("var/gaming_zone.db")
+    con.row_factory = sql.Row
 
-    return render_template('mass_effect.html', mass_effect=mass_effect)
+    cur = con.cursor()
+
+    cur.execute("SELECT * FROM massDatabase")
+    mass_effect_posts = cur.fetchall();
+
+    return render_template('mass_effect.html', mass_effect=mass_effect, mass_effect_posts=mass_effect_posts)
 
 @app.route('/games/the_legend_of_zelda', methods=['GET', 'POST'])
 def the_legend_of_zelda():
@@ -188,8 +205,25 @@ def the_legend_of_zelda():
 
     cur.execute("SELECT * FROM games WHERE id=3")
     the_legend = cur.fetchall();
+    
+    if request.method == 'POST':
+            titl = request.form['titl']
+            cont = request.form['cont']
+            desc = request.form['desc']
+            db = get_db()
+            db.cursor().execute("INSERT INTO thelegendDatabase (title,content,descriptors) VALUES (?,?,?)",(titl,cont,desc) )
+            db.commit()
+            return redirect(url_for('the_legend_of_zelda'));
+           
+    con = sql.connect("var/gaming_zone.db")
+    con.row_factory = sql.Row
 
-    return render_template('the_legend.html', the_legend=the_legend)
+    cur = con.cursor()
+
+    cur.execute("SELECT * FROM thelegendDatabase")
+    the_legend_posts = cur.fetchall();
+
+    return render_template('the_legend.html', the_legend=the_legend, the_legend_posts=the_legend_posts)
 
 @app.route('/games/halo_infinite', methods=['GET', 'POST'])
 def halo_infinite():
@@ -200,11 +234,28 @@ def halo_infinite():
 
     cur.execute("SELECT * FROM games WHERE id=4")
     halo = cur.fetchall();
+    
+    if request.method == 'POST':
+            titl = request.form['titl']
+            cont = request.form['cont']
+            desc = request.form['desc']
+            db = get_db()
+            db.cursor().execute("INSERT INTO haloDatabase (title,content,descriptors) VALUES (?,?,?)",(titl,cont,desc) )
+            db.commit()
+            return redirect(url_for('halo_infinite'));
+           
+    con = sql.connect("var/gaming_zone.db")
+    con.row_factory = sql.Row
 
-    return render_template('halo.html', halo=halo)
+    cur = con.cursor()
+
+    cur.execute("SELECT * FROM haloDatabase")
+    halo_posts = cur.fetchall();
+
+    return render_template('halo.html', halo=halo, halo_posts=halo_posts)
 
 @app.route('/games/witcher_3', methods=['GET', 'POST'])
-def witcher_three():
+def witcher_3():
     con = sql.connect("var/gaming_zone.db")
     con.row_factory = sql.Row
 
@@ -212,8 +263,25 @@ def witcher_three():
 
     cur.execute("SELECT * FROM games WHERE id=5")
     witcher = cur.fetchall();
+    
+    if request.method == 'POST':
+            titl = request.form['titl']
+            cont = request.form['cont']
+            desc = request.form['desc']
+            db = get_db()
+            db.cursor().execute("INSERT INTO witcherDatabase (title,content,descriptors) VALUES (?,?,?)",(titl,cont,desc) )
+            db.commit()
+            return redirect(url_for('witcher_3'));
+           
+    con = sql.connect("var/gaming_zone.db")
+    con.row_factory = sql.Row
 
-    return render_template('witcher.html', witcher=witcher)
+    cur = con.cursor()
+
+    cur.execute("SELECT * FROM witcherDatabase")
+    witcher_posts = cur.fetchall();
+
+    return render_template('witcher.html', witcher=witcher, witcher_posts=witcher_posts)
 
 @app.route('/games/dark_souls', methods=['GET', 'POST'])
 def dark_souls():
@@ -224,8 +292,25 @@ def dark_souls():
 
     cur.execute("SELECT * FROM games WHERE id=6")
     dark_souls = cur.fetchall();
+    
+    if request.method == 'POST':
+            titl = request.form['titl']
+            cont = request.form['cont']
+            desc = request.form['desc']
+            db = get_db()
+            db.cursor().execute("INSERT INTO darkDatabase (title,content,descriptors) VALUES (?,?,?)",(titl,cont,desc) )
+            db.commit()
+            return redirect(url_for('dark_souls'));
+           
+    con = sql.connect("var/gaming_zone.db")
+    con.row_factory = sql.Row
 
-    return render_template('dark_souls.html', dark_souls=dark_souls)
+    cur = con.cursor()
+
+    cur.execute("SELECT * FROM darkDatabase")
+    dark_souls_posts = cur.fetchall();
+
+    return render_template('dark_souls.html', dark_souls=dark_souls, dark_souls_posts=dark_souls_posts)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
