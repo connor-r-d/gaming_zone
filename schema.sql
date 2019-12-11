@@ -25,7 +25,7 @@ CREATE TABLE massDatabase(
 
 DROP TABLE if EXISTS thelegendDatabase;
 
-CREATE TABLE lastDatabase(
+CREATE TABLE thelegendDatabase(
 	title varchar(100) NOT NULL,
 	content varchar(10000) NOT NULL,
 	descriptors varchar(150) NOT NULL
@@ -33,7 +33,7 @@ CREATE TABLE lastDatabase(
 
 DROP TABLE if EXISTS haloDatabase;
 
-CREATE TABLE lastDatabase(
+CREATE TABLE haloDatabase(
 	title varchar(100) NOT NULL,
 	content varchar(10000) NOT NULL,
 	descriptors varchar(150) NOT NULL
@@ -41,7 +41,7 @@ CREATE TABLE lastDatabase(
 
 DROP TABLE if EXISTS witcherDatabase;
 
-CREATE TABLE lastDatabase(
+CREATE TABLE witcherDatabase(
 	title varchar(100) NOT NULL,
 	content varchar(10000) NOT NULL,
 	descriptors varchar(150) NOT NULL
