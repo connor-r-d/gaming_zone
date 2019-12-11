@@ -104,6 +104,24 @@
 
 {% endfor %}
 	
+<script type="text/javascript" src="../static/js/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="../static/js/script.js">
+
+	$(document).ready(function(){
+		'use strict';
+			$('.upload').click(function() {
+					$('.page_overlay').css('display', 'block');
+					$('.overlay').css('display', 'block');
+			});
+
+			$('.cross').click(function() {
+					$('.page_overlay').css('display', 'none');
+					$('.overlay'.css('display', 'none');
+			}
+	});
+	
+</script>
+	
 </body>
 
 </html>
