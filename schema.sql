@@ -7,9 +7,49 @@ CREATE TABLE games(
 	PRIMARY KEY (id)
 );
 
-DROP TABLE if EXISTS the_last_of_us;
+DROP TABLE if EXISTS lastDatabase;
 
 CREATE TABLE lastDatabase(
+	title varchar(100) NOT NULL,
+	content varchar(10000) NOT NULL,
+	descriptors varchar(150) NOT NULL
+);
+
+DROP TABLE if EXISTS massDatabase;
+
+CREATE TABLE massDatabase(
+	title varchar(100) NOT NULL,
+	content varchar(10000) NOT NULL,
+	descriptors varchar(150) NOT NULL
+);
+
+DROP TABLE if EXISTS thelegendDatabase;
+
+CREATE TABLE lastDatabase(
+	title varchar(100) NOT NULL,
+	content varchar(10000) NOT NULL,
+	descriptors varchar(150) NOT NULL
+);
+
+DROP TABLE if EXISTS haloDatabase;
+
+CREATE TABLE lastDatabase(
+	title varchar(100) NOT NULL,
+	content varchar(10000) NOT NULL,
+	descriptors varchar(150) NOT NULL
+);
+
+DROP TABLE if EXISTS witcherDatabase;
+
+CREATE TABLE lastDatabase(
+	title varchar(100) NOT NULL,
+	content varchar(10000) NOT NULL,
+	descriptors varchar(150) NOT NULL
+);
+
+DROP TABLE if EXISTS darkDatabase;
+
+CREATE TABLE darkDatabase(
 	title varchar(100) NOT NULL,
 	content varchar(10000) NOT NULL,
 	descriptors varchar(150) NOT NULL
