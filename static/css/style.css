@@ -238,7 +238,7 @@ a:hover, a:visited, a:link, a:active
 
 
 .individual_games_container{
-	width: 21.7vw;
+	width: 21vw;
 	height:300px;
 	float:left;
 	margin:1.5%;
@@ -360,7 +360,7 @@ a:hover, a:visited, a:link, a:active
 }
 
 .search_upload{
-	width:30%;
+	width:33%;
 	height:10%;
 	margin-left:auto;
 	margin-right:auto;
@@ -369,7 +369,7 @@ a:hover, a:visited, a:link, a:active
 
 .search_box{
 	width:330px;
-	height:50px;
+	height:40px;
 	float:left;
 }
 
